@@ -1,0 +1,89 @@
+
+> deadline-hub@1.0.0 build
+> next build
+
+   ▲ Next.js 15.5.28
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ ⚠ Compiled with warnings in 1875ms
+
+./node_modules/jose/dist/webapi/lib/deflate.js
+A Node.js API is used (CompressionStream at line: 31) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import trace for requested module:
+./node_modules/jose/dist/webapi/lib/deflate.js
+./node_modules/jose/dist/webapi/lib/jwe_encrypt.js
+./node_modules/jose/dist/webapi/jwt/encrypt.js
+./node_modules/jose/dist/webapi/index.js
+./node_modules/@auth/core/jwt.js
+./node_modules/@auth/core/lib/init.js
+./node_modules/@auth/core/lib/index.js
+./node_modules/@auth/core/index.js
+./node_modules/next-auth/index.js
+
+./node_modules/jose/dist/webapi/lib/deflate.js
+A Node.js API is used (DecompressionStream at line: 34) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import trace for requested module:
+./node_modules/jose/dist/webapi/lib/deflate.js
+./node_modules/jose/dist/webapi/lib/jwe_encrypt.js
+./node_modules/jose/dist/webapi/jwt/encrypt.js
+./node_modules/jose/dist/webapi/index.js
+./node_modules/@auth/core/jwt.js
+./node_modules/@auth/core/lib/init.js
+./node_modules/@auth/core/lib/index.js
+./node_modules/@auth/core/index.js
+./node_modules/next-auth/index.js
+
+ ✓ Compiled successfully in 11.0s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/28) ...
+   Generating static pages (7/28) 
+   Generating static pages (14/28) 
+   Generating static pages (21/28) 
+ ✓ Generating static pages (28/28)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                    Size  First Load JS  Revalidate  Expire
+┌ ○ /                                       3.08 kB         118 kB
+├ ○ /_not-found                               145 B         103 kB
+├ ƒ /403                                      172 B         112 kB
+├ ƒ /admin                                  2.02 kB         111 kB
+├ ƒ /api/auth/[...nextauth]                   145 B         103 kB
+├ ƒ /api/progress                             145 B         103 kB
+├ ƒ /dashboard                              1.43 kB         110 kB
+├ ƒ /dashboard/done                         1.43 kB         110 kB
+├ ƒ /dashboard/pending                      1.43 kB         110 kB
+├ ○ /deadlines                               4.6 kB         111 kB          1m      1y
+├ ● /deadlines/[id]                         2.38 kB         120 kB
+├   ├ /deadlines/12
+├   ├ /deadlines/11
+├   ├ /deadlines/10
+├   └ [+10 more paths]
+├ ƒ /deadlines/[id]/opengraph-image-104vc5    145 B         103 kB
+├ ƒ /login                                  2.38 kB         117 kB
+├ ○ /opengraph-image                          145 B         103 kB
+├ ○ /robots.txt                               145 B         103 kB
+├ ○ /sitemap.xml                              145 B         103 kB          1h      1y
+└ ● /subjects/[slug]                         2.6 kB         114 kB
+    ├ /subjects/web-nang-cao
+    ├ /subjects/phan-tich-nghiep-vu
+    ├ /subjects/di-dong
+    └ /subjects/kiem-thu
++ First Load JS shared by all                103 kB
+  ├ chunks/255-b1e2483a7e02feee.js          46.6 kB
+  ├ chunks/4bd1b696-c023c6e3521b1417.js     54.2 kB
+  └ other shared chunks (total)             1.99 kB
+
+
+ƒ Middleware                                87.2 kB
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

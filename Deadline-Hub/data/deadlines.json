@@ -1,0 +1,119 @@
+[
+  {
+    "id": 1,
+    "title": "Sơ đồ BPMN quy trình đặt món",
+    "subject": "phan-tich-nghiep-vu",
+    "type": "Bài tập",
+    "due": "2026-10-29T23:59:00+07:00",
+    "submission": "File .xml (draw.io) lên LMS",
+    "description": "Vẽ sơ đồ BPMN 2.0 cho quy trình đặt món ăn trực tuyến: khách hàng, nhà hàng và shipper là ba pool riêng. Thể hiện đầy đủ sự kiện bắt đầu/kết thúc, gateway rẽ nhánh khi món hết hàng và luồng thông điệp giữa các bên.\n- Làm theo nhóm 3–4 người, mỗi nhóm nộp một file.\n- Đặt tên file: Nhom[XX]_BPMN_DatMon.xml\n- Nộp muộn bị trừ điểm theo quy định của môn."
+  },
+  {
+    "id": 2,
+    "title": "Bài tập Redux Toolkit",
+    "subject": "web-nang-cao",
+    "type": "Bài tập",
+    "due": "2026-10-30T23:59:00+07:00",
+    "submission": "Link GitHub repo lên LMS",
+    "description": "Xây dựng ứng dụng giỏ hàng dùng Redux Toolkit: createSlice, createAsyncThunk để gọi API sản phẩm và RTK Query cho phần đơn hàng.\n- Có ít nhất 2 slice.\n- Viết README mô tả cấu trúc store."
+  },
+  {
+    "id": 3,
+    "title": "Viết test case chức năng đăng nhập",
+    "subject": "kiem-thu",
+    "type": "Bài tập",
+    "due": "2026-10-31T23:59:00+07:00",
+    "submission": "File Excel lên LMS",
+    "description": "Thiết kế bộ test case cho chức năng đăng nhập bằng kỹ thuật phân vùng tương đương và giá trị biên.\n- Tối thiểu 20 test case.\n- Dùng template của môn."
+  },
+  {
+    "id": 4,
+    "title": "Lab 3: Navigation trong React Native",
+    "subject": "di-dong",
+    "type": "Lab",
+    "due": "2026-11-02T23:59:00+07:00",
+    "submission": "Link Expo Snack lên LMS",
+    "description": "Cài đặt React Navigation với Stack và Bottom Tabs, truyền tham số giữa các màn hình và xử lý nút Back trên Android."
+  },
+  {
+    "id": 5,
+    "title": "Bài tập Jest unit test",
+    "subject": "kiem-thu",
+    "type": "Bài tập",
+    "due": "2026-11-05T23:59:00+07:00",
+    "submission": "Link GitHub repo lên LMS",
+    "description": "Viết unit test bằng Jest cho module tính toán giỏ hàng, độ bao phủ (coverage) tối thiểu 80%.\n- Có test cho trường hợp lỗi.\n- Đính kèm ảnh báo cáo coverage."
+  },
+  {
+    "id": 6,
+    "title": "Đồ án Next.js: Class Deadline Hub",
+    "subject": "web-nang-cao",
+    "type": "Đồ án",
+    "due": "2026-11-10T23:59:00+07:00",
+    "submission": "Mã nguồn (zip) + README lên LMS",
+    "description": "Xây dựng cổng web deadline của lớp với Next.js App Router: SSG/ISR/SSR, NextAuth, Middleware phân quyền và tối ưu SEO.\n- Không nộp kèm node_modules, .next.\n- README có điểm Lighthouse."
+  },
+  {
+    "id": 7,
+    "title": "Báo cáo đặc tả yêu cầu (SRS)",
+    "subject": "phan-tich-nghiep-vu",
+    "type": "Báo cáo",
+    "due": "2026-11-15T23:59:00+07:00",
+    "submission": "File PDF lên LMS",
+    "description": "Viết tài liệu đặc tả yêu cầu phần mềm theo chuẩn IEEE 830 cho hệ thống đã chọn ở đầu kỳ."
+  },
+  {
+    "id": 8,
+    "title": "Báo cáo kiểm thử hiệu năng JMeter",
+    "subject": "kiem-thu",
+    "type": "Báo cáo",
+    "due": "2026-11-20T23:59:00+07:00",
+    "submission": "File PDF + file .jmx lên LMS",
+    "description": "Thực hiện load test và stress test cho một API công khai bằng JMeter, phân tích throughput và thời gian phản hồi."
+  },
+  {
+    "id": 9,
+    "title": "Đồ án ứng dụng đặt lịch khám",
+    "subject": "di-dong",
+    "type": "Đồ án",
+    "due": "2026-12-05T23:59:00+07:00",
+    "submission": "File APK + mã nguồn lên LMS",
+    "description": "Phát triển ứng dụng React Native đặt lịch khám bệnh: đăng nhập, chọn bác sĩ, chọn khung giờ và nhận thông báo nhắc lịch."
+  },
+  {
+    "id": 10,
+    "title": "Quiz Flexbox & StyleSheet",
+    "subject": "di-dong",
+    "type": "Kiểm tra",
+    "due": "2026-10-26T23:59:00+07:00",
+    "submission": "Làm trực tiếp trên LMS",
+    "description": "Bài kiểm tra trắc nghiệm 20 câu về Flexbox và StyleSheet trong React Native, thời gian 30 phút."
+  },
+  {
+    "id": 11,
+    "title": "Kiểm tra giữa kỳ Zustand & Testing",
+    "subject": "web-nang-cao",
+    "type": "Kiểm tra",
+    "due": "2026-10-24T23:59:00+07:00",
+    "submission": "Làm trên lớp",
+    "description": "Kiểm tra giữa kỳ: quản lý state với Zustand và viết test bằng React Testing Library."
+  },
+  {
+    "id": 12,
+    "title": "Thuyết trình nhóm Use Case",
+    "subject": "phan-tich-nghiep-vu",
+    "type": "Thuyết trình",
+    "due": "2026-10-20T23:59:00+07:00",
+    "submission": "Slide PDF lên LMS",
+    "description": "Mỗi nhóm thuyết trình 10 phút về sơ đồ Use Case và đặc tả use case chính của hệ thống."
+  },
+  {
+    "id": 13,
+    "title": "hello cac ban",
+    "subject": "kiem-thu",
+    "type": "Đồ án",
+    "due": "2026-10-30T23:59:00+07:00",
+    "submission": "Nộp trên LMS",
+    "description": "Lớp trưởng chưa thêm mô tả cho deadline này."
+  }
+]

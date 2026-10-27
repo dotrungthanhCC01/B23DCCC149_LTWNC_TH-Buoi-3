@@ -1,0 +1,31 @@
+# Thư viện cài đặt — KHÔNG nộp
+node_modules/
+
+# Kết quả build / cache của Next.js, SWC — KHÔNG nộp
+.next/
+out/
+build/
+.swc/
+*.tsbuildinfo
+next-env.d.ts
+
+# Biến môi trường chứa bí mật (AUTH_SECRET, GitHub secret) — chỉ nộp .env.example
+.env
+.env*.local
+
+# Kết quả test coverage
+coverage/
+
+# Log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Vercel
+.vercel/
+
+# Hệ điều hành / IDE
+.DS_Store
+Thumbs.db
+.idea/

@@ -1,0 +1,6 @@
+[
+  { "slug": "web-nang-cao", "name": "Lập trình Web nâng cao", "short": "Web NC", "color": "lavender", "teacher": "[Tên giảng viên]", "code": "[MÃ HP]" },
+  { "slug": "phan-tich-nghiep-vu", "name": "Phân tích nghiệp vụ", "short": "PTNV", "color": "lime", "teacher": "[Tên giảng viên]", "code": "[MÃ HP]" },
+  { "slug": "di-dong", "name": "Phát triển ứng dụng di động", "short": "Di động", "color": "pink", "teacher": "[Tên giảng viên]", "code": "[MÃ HP]" },
+  { "slug": "kiem-thu", "name": "Kiểm thử phần mềm", "short": "Kiểm thử", "color": "peach", "teacher": "[Tên giảng viên]", "code": "[MÃ HP]" }
+]

@@ -1,0 +1,4 @@
+[
+  { "id": "u-admin", "name": "Đỗ Trung Thành", "email": "admin@ptit.edu.vn", "passwordHash": "$2b$10$LhfpbJk3bTTk/mrfd4NCZ.ZA05PaxFjQkX5vmRLbBjQR4ud8BXGDC", "role": "admin" },
+  { "id": "u-sv", "name": "Nguyễn Việt Anh", "email": "sv@ptit.edu.vn", "passwordHash": "$2b$10$p9x4x2BG.G6lmLATf20d4ulm2UvVWdxhL/HIrwzhIWQa6uXjjuS6u", "role": "user" }
+]
