@@ -70,41 +70,7 @@ Biến môi trường ([.env.example](.env.example)):
 
 ---
 
-## 2. Đối chiếu yêu cầu
-
-| # | Yêu cầu | Trạng thái | Thực hiện ở đâu |
-|---|---|:-:|---|
-| A1 | `/` SSG | ✅ | [app/(public)/page.tsx](app/(public)/page.tsx): `dynamic = "force-static"`. Build ra `○` |
-| A1 | `/subjects/[slug]` SSG | ✅ | [app/(public)/subjects/[slug]/page.tsx](app/(public)/subjects/[slug]/page.tsx): `generateStaticParams`, `dynamicParams = false`. Build ra `●` |
-| A1 | `/deadlines` ISR 60 giây | ✅ | [app/(public)/deadlines/(list)/page.tsx](app/(public)/deadlines/(list)/page.tsx): `revalidate = 60`. Build ra `○ … 1m` |
-| A1 | `/deadlines/[id]` ISR, làm mới ngay khi admin thêm/xoá | ✅ | [app/(public)/deadlines/[id]/page.tsx](app/(public)/deadlines/[id]/page.tsx) dùng `generateStaticParams`. [app/actions.ts](app/actions.ts) gọi `revalidatePath` |
-| A1 | `/dashboard` SSR (đã đăng nhập) | ✅ | [app/(app)/dashboard/](app/(app)/dashboard/): `force-dynamic` + `auth()`. Build ra `ƒ` |
-| A1 | `/admin` SSR (chỉ admin) | ✅ | [app/(app)/admin/page.tsx](app/(app)/admin/page.tsx). Build ra `ƒ` |
-| A2 | Id không tồn tại hiện trang 404 của dự án | ✅ | `notFound()` dẫn tới [app/not-found.tsx](app/not-found.tsx); trả mã **404** thật cho `/deadlines/99` và `/deadlines/abc` |
-| B3 | Route group `(public)` và `(app)`, mỗi nhóm một layout | ✅ | [app/(public)/layout.tsx](app/(public)/layout.tsx), [app/(app)/layout.tsx](app/(app)/layout.tsx) |
-| B4 | `/dashboard` layout lồng nhau có sidebar, tô sáng trang hiện tại | ✅ | [app/(app)/dashboard/layout.tsx](app/(app)/dashboard/layout.tsx), [SidebarNav.tsx](components/dashboard/SidebarNav.tsx) dùng `usePathname` |
-| B5 | loading, error (nút "Thử lại"), not-found | ✅ | [loading.tsx (danh sách)](app/(public)/deadlines/(list)/loading.tsx), [loading.tsx (dashboard)](app/(app)/dashboard/loading.tsx), [error.tsx (public)](app/(public)/error.tsx), [error.tsx (app)](app/(app)/error.tsx), [not-found.tsx](app/not-found.tsx) |
-| B6 | Mặc định Server Component, chỉ `'use client'` khi cần tương tác | ✅ | Xem [mục 4](#4-routing-và-component) |
-| C7 | NextAuth Credentials, session JWT | ✅ | [auth.ts](auth.ts), [auth.config.ts](auth.config.ts) |
-| C8 | `id` và `role` trong session, kiểu TypeScript đầy đủ (role không phải `string`) | ✅ | [types/next-auth.d.ts](types/next-auth.d.ts): `role: SessionRole` = `"user" \| "admin"` |
-| C9 | Header hiện tên, vai trò, nút Đăng nhập/Đăng xuất | ✅ | [components/header/](components/header/) |
-| D10 | Ma trận phân quyền ở một nơi duy nhất, hàm `can(role, action)` | ✅ | [lib/permissions.ts](lib/permissions.ts) |
-| D11 | Middleware bảo vệ `/dashboard`, `/admin`; chuyển `/login?callbackUrl=…` hoặc `/403` | ✅ | [middleware.ts](middleware.ts) |
-| D12 | Trang `/admin` và mọi Server Action tự kiểm tra quyền; đầu vào được kiểm tra | ✅ | `auth()` + `can()` ở [admin/page.tsx](app/(app)/admin/page.tsx) và [actions.ts](app/actions.ts); dùng zod |
-| E13 | Metadata động cho `/deadlines/[id]` + ảnh chia sẻ cho từng deadline | ✅ | `generateMetadata` + [opengraph-image.tsx](app/(public)/deadlines/[id]/opengraph-image.tsx) |
-| E14 | Sitemap (mọi deadline) và robots (chặn `/dashboard`, `/admin`); `/login`, `/dashboard` noindex | ✅ | [app/sitemap.ts](app/sitemap.ts), [app/robots.ts](app/robots.ts), metadata `robots: { index: false }` |
-| E15 | JSON-LD BreadcrumbList ở trang chi tiết | ✅ | [app/(public)/deadlines/[id]/page.tsx](app/(public)/deadlines/[id]/page.tsx) |
-| E16 | `next/font` (có tiếng Việt) và `next/image` | ✅ | [app/layout.tsx](app/layout.tsx): Anton + Be Vietnam Pro, subset `vietnamese`; `next/image` cho logo, minh hoạ, avatar |
-| E17 | Lighthouse bản production cho `/` và `/deadlines/[id]` | ✅ | [Mục 7](#7-điểm-lighthouse) |
-| Nộp | Mã nguồn không kèm `node_modules`, `.next` | ✅ | [.gitignore](.gitignore) |
-| Nộp | README: cách chạy, ảnh build và lý do, Lighthouse, view-source, 2 câu hỏi | ✅ | File này |
-| + | Đăng nhập GitHub OAuth | ✅ | [auth.ts](auth.ts) |
-| + | Test Jest cho `can()` | ✅ | [__tests__/permissions.test.ts](__tests__/permissions.test.ts): 15/15 pass |
-| + | Deploy Vercel | ⬜ | Đã cấu hình sẵn, chưa deploy. Xem [mục 11](#11-điểm-cộng) |
-
----
-
-## 3. Kết quả `npm run build` và lý do chọn chiến lược render
+## 2. Kết quả `npm run build` và lý do chọn chiến lược render
 
 ![npm run build](docs/terminal/01-npm-run-build.png)
 
@@ -127,7 +93,7 @@ Ký hiệu của Next.js:
 
 ---
 
-## 4. Routing và component
+## 3. Routing và component
 
 - **`(public)`**: layout có header lấy session ở **client** (`useSession`), nhờ vậy các trang công khai vẫn là SSG/ISR. Nếu header gọi `auth()` ở server, cả nhóm sẽ thành dynamic.
 - **`(app)`**: layout đọc session ở **server** (`auth()`), mọi trang trong nhóm là SSR.
@@ -147,7 +113,7 @@ Mặc định mọi thứ là **Server Component**. `'use client'` chỉ có ở
 
 ---
 
-## 5. Xác thực, Middleware và phân quyền
+## 4. Xác thực, Middleware và phân quyền
 
 **Đăng nhập:**
 - NextAuth (Auth.js v5) với provider Credentials, `session: { strategy: "jwt" }`.
@@ -191,7 +157,7 @@ Ngoài ra, `callbackUrl` ở `/login` chỉ chấp nhận đường dẫn nội 
 
 ---
 
-## 6. SEO và tối ưu
+## 5. SEO và tối ưu
 
 ![robots sitemap noindex](docs/terminal/04-robots-sitemap-noindex.png)
 
@@ -211,7 +177,7 @@ Ngoài ra, `callbackUrl` ở `/login` chỉ chấp nhận đường dẫn nội 
 
 ---
 
-## 7. Điểm Lighthouse
+## 6. Điểm Lighthouse
 
 Đo bằng Lighthouse 12 trên **bản production** (`npm run build && npm start`), Chrome headless.
 
@@ -234,7 +200,7 @@ Báo cáo đầy đủ, mở bằng trình duyệt: [docs/lighthouse/](docs/ligh
 
 ---
 
-## 8. Ảnh view-source của `/deadlines/1`
+## 7. Ảnh view-source của `/deadlines/1`
 
 HTML server trả về đã chứa sẵn:
 - `<title>`, description, canonical, các thẻ `og:*` và `twitter:*`;
@@ -247,7 +213,7 @@ Trang được prerender (ISR), bot của Google và mạng xã hội đọc đ�
 
 ---
 
-## 9. Trả lời câu hỏi
+## 8. Trả lời câu hỏi
 
 ### (1) Vì sao `/deadlines/[id]` dùng ISR?
 
@@ -275,7 +241,7 @@ Trang được prerender (ISR), bot của Google và mạng xã hội đọc đ�
 
 ---
 
-## 10. Ảnh giao diện
+## 9. Ảnh giao diện
 
 | | |
 |---|---|
@@ -289,7 +255,7 @@ Trang được prerender (ISR), bot của Google và mạng xã hội đọc đ�
 
 ---
 
-## 11. Điểm cộng
+## 10. Điểm cộng
 
 **Test Jest cho `can()`: ✅**
 
@@ -318,7 +284,7 @@ Cách tạo OAuth App:
 - Các bước: import repo vào Vercel, đặt `AUTH_SECRET` và `NEXT_PUBLIC_SITE_URL=https://<tên-dự-án>.vercel.app`, rồi deploy. Nếu dùng GitHub OAuth, thêm callback URL của domain Vercel.
 ---
 
-## 12. Cấu trúc thư mục
+## 11. Cấu trúc thư mục
 
 ```
 Deadline-Hub/
